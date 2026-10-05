@@ -1,0 +1,27 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets / local configuration
+.env
+*.pem
+*.key
+
+# Experiment output / captures
+experiments/logs/*.jsonl
+*.pcap
+*.pcapng
+
+# Demo evidence (keep large files out of Git)
+evidence/*
+!evidence/.gitkeep
+
+# Generated archives
+*.zip

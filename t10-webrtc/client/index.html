@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T10 WebRTC P2P File Transfer</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 30px auto; padding: 0 16px; }
+    input, button { padding: 9px; margin: 4px 0; }
+    button { cursor: pointer; }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .card { border: 1px solid #ccc; border-radius: 8px; padding: 16px; margin: 12px 0; }
+    #log { background: #111; color: #eee; padding: 12px; min-height: 180px; white-space: pre-wrap; overflow: auto; }
+    progress { width: 100%; height: 22px; }
+    .ok { color: green; font-weight: bold; }
+    .warn { color: #a15c00; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>T10 – WebRTC P2P File Transfer</h1>
+
+  <div class="card">
+    <div class="row">
+      <label>Room:
+        <input id="room" value="demo" autocomplete="off">
+      </label>
+      <button id="joinBtn">Join room</button>
+      <button id="leaveBtn" disabled>Leave</button>
+    </div>
+    <p>Status: <strong id="status">Disconnected</strong></p>
+    <p>Peer ID: <code id="peerId"></code></p>
+  </div>
+
+  <div class="card">
+    <h2>Connection</h2>
+    <p>DataChannel: <strong id="dcStatus">Closed</strong></p>
+    <p>ICE candidate types: <strong id="candidateTypes">-</strong></p>
+    <button id="statsBtn" disabled>Refresh WebRTC stats</button>
+    <pre id="stats">-</pre>
+  </div>
+
+  <div class="card">
+    <h2>Send file</h2>
+    <input id="fileInput" type="file" disabled>
+    <button id="sendBtn" disabled>Send file</button>
+    <progress id="progress" value="0" max="100"></progress>
+    <p id="transferStatus">-</p>
+  </div>
+
+  <div class="card">
+    <h2>Event log</h2>
+    <pre id="log"></pre>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
